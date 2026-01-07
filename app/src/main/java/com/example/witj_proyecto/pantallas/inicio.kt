@@ -3,7 +3,6 @@ package com.example.witj_proyecto.pantallas
 import androidx.compose.runtime.Composable
 
 @Composable
-fun pantallaSplash(onFinish: () -> Unit) {
-    // UI simple
-    onFinish()
+fun InicioScreen(onContinue: () -> Unit) {
+    // UI de inicio
 }
