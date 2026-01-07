@@ -36,6 +36,25 @@ fun checarRespuesta(
     }
 }
 
+
+val preguntasDemo = listOf(
+    Question(
+        palabra = "Witj",
+        opciones = listOf("Aprender", "Jugar", "Comer"),
+        respuestacorrecta = "Aprender"
+    ),
+    Question(
+        palabra = "Bida",
+        opciones = listOf("Casa", "Perro", "Maíz"),
+        respuestacorrecta = "Casa"
+    ),
+    Question(
+        palabra = "Guii",
+        opciones = listOf("Flor", "Sol", "Agua"),
+        respuestacorrecta = "Sol"
+    )
+)
+
 @Composable
 fun JuegosScreen() {
     // pantalla juegos
