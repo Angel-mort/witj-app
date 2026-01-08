@@ -12,13 +12,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.witj_proyecto.viewmodel.JuegoViewModel
 
 
 private const val TOTAL_QUESTIONS = 3
@@ -75,14 +72,15 @@ val preguntasDemo = listOf(
 )
 
 @Composable
-fun JuegosScreen() {
+fun JuegosScreen(viewModel: JuegoViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
 
-    var estado by remember { mutableStateOf(EstadoJuego()) }
-
-    val preguntaActual = preguntasDemo[estado.indicePreguntaactual]
+    val estado = viewModel.estado.value
+    val preguntaActual = viewModel.preguntas[estado.indicePreguntaactual]
 
     if (estado.terminado) {
-        ResultadoScreen(puntaje = estado.puntaje)
+        ResultadoScreen(puntaje = estado.puntaje,
+            onReiniciar = { viewModel.reiniciarJuego() }
+            )
     } else {
         Column(
             modifier = Modifier
@@ -91,49 +89,40 @@ fun JuegosScreen() {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
 
-            Text(
-                text = "Palabra:",
-                style = MaterialTheme.typography.titleMedium
-            )
+            Text("Palabra:")
+            Text(preguntaActual.palabra, style = MaterialTheme.typography.headlineMedium)
 
-            Text(
-                text = preguntaActual.palabra,
-                style = MaterialTheme.typography.headlineMedium
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
 
             preguntaActual.opciones.forEach { opcion ->
                 Button(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = {
-                        estado = checarRespuesta(
-                            seleccionado = opcion,
-                            question = preguntaActual,
-                            estado = estado
-                        )
-                    }
+                    onClick = { viewModel.onOpcionSeleccionada(opcion) }
                 ) {
                     Text(opcion)
                 }
             }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
             Text(text = "Puntaje: ${estado.puntaje}")
         }
     }
 }
 @Composable
-fun ResultadoScreen(puntaje: Int) {
+fun ResultadoScreen(puntaje: Int,
+                    onReiniciar: () -> Unit
+) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(
-            text = "Juego terminado\nPuntaje: $puntaje",
-            style = MaterialTheme.typography.headlineMedium
-        )
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                text = "Juego terminado\nPuntaje: $puntaje",
+                style = MaterialTheme.typography.headlineMedium
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(onClick = onReiniciar) {
+                Text("Volver a jugar")
+            }
     }
 }
+    }
 
