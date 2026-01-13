@@ -8,23 +8,31 @@ class RepositorioPalabras {
 
     //lista temporal en memoria  (despues podriamos usar bases de datos)
     private val palabras= listOf(
-        Palabra(zapoteco = "Gozedo",
-            espanol = "Aprendizaje",
-            imagenRes = R.drawable.verb1,
-            categoria = "verbo"
-        ),
-        Palabra(zapoteco = "chaac", espanol = "Lluvia", imagenRes = R.drawable.nat1,"Naturaleza")
+        Palabra(1,"Gozedo", "Aprendizaje",  lengua = Lengua.Zapoteco, categoria = Categoria.verbo, R.drawable.verb1 ),
+        Palabra(2, "chaac", "Lluvia", lengua = Lengua.Zapoteco, categoria = Categoria.naturaleza, R.drawable.nat1),
+        Palabra(3, "Gudao", "Comer", lengua = Lengua.Zapoteco, categoria = Categoria.verbo, R.drawable.verb2),
+        Palabra(4, "Ye'e", "Beber", lengua = Lengua.Zapoteco, categoria = Categoria.verbo, R.drawable.verb3),
+
+
+      //.......
+
 
     )
 
-    //Funcion para devolver todas las palabras
 
+
+
+
+    //Funcion para devolver todas las palabras
     fun obtenerTodas(): List<Palabra> {
         return palabras
     }
     //Funcion para devolver palabras filtradas por categoria
-    fun obtenerXcategoria(categoria: String): List<Palabra> {
-        return palabras.filter { it.categoria== categoria }
+    fun obtenerXlenguaYcategoria(
+        lengua: Lengua,
+        categoria: Categoria
+    ): List<Palabra> {
+        return palabras.filter {   it.lengua == lengua && it.categoria == categoria}
     }
 
     //funcion para devolver una cantidad aleatoria para el minijuego

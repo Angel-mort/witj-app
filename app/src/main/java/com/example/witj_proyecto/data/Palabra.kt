@@ -1,8 +1,20 @@
 package com.example.witj_proyecto.data
 
+
 data class Palabra(
-    val zapoteco: String,      // Palabra en zapoteco
-    val espanol: String,       // Traduccion al español
-    val imagenRes: Int,        // Imagen asociada (drawable)
-    val categoria: String      // Categoria tematica
+    val id: Int,
+    val textoLengua: String,     // Palabra en la lengua
+    val traduccion: String,      // traduccion en Español
+    val lengua: Lengua,          // Zapoteco, Mixteco, etc.
+    val categoria: Categoria,    // Animales, Naturaleza, etc..
+    val imagenRes: Int? = null   // Imagen asociada opcional
 )
+
+
+
+enum class  Lengua {
+   Zapoteco,
+    Mixteco
+    // más lenguas en el futuro
+}
+
