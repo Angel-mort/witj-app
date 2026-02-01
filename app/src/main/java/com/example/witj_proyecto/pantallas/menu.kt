@@ -12,18 +12,25 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun MenuScreen(
-    onAprende: () -> Unit,
+
     onJuegos: () -> Unit,
-    onHistorias: () -> Unit
+    onDiccionario: () -> Unit,
+
 ) {
+
+
+
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        Button(onClick = onAprende) { Text("Aprender") }
+
+        Button(onClick = onDiccionario) { Text("Diccionario")}
         Button(onClick = onJuegos) { Text("Jugar") }
-        Button(onClick = onHistorias) { Text("Historias") }
+
     }
 }
