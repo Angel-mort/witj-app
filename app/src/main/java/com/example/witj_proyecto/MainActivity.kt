@@ -12,6 +12,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        // arranca la app con el tema y el composable raiz
         setContent {
             Witj_proyectoTheme {
                 WitjApp()

@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.example.witj_proyecto.ui.theme.WitjChipBorder
 import com.example.witj_proyecto.ui.theme.WitjChipSelected
 
+// chip que se ve seleccionado (fondo) o no (borde)
 @Composable
 fun SelectableChip(
     text: String,

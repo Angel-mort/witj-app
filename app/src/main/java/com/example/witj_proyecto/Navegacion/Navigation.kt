@@ -16,12 +16,10 @@ import com.example.witj_proyecto.pantallas.pantallaSplash
 import com.example.witj_proyecto.ui.components.WitjScaffoldWithBottomNav
 
 @Composable
-fun Navegacion (){
+fun Navegacion() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = rutas.Splash.route){
-
-        //Ruta de la primer pantalla (Splash)
+    NavHost(navController = navController, startDestination = rutas.Splash.route) {
         composable(rutas.Splash.route) {
             pantallaSplash {
                 navController.navigate(rutas.Menu.route)
@@ -41,6 +39,7 @@ fun Navegacion (){
             )
         }
 
+        // diccionario y juego llevan bottom bar y su viewModel
         composable(rutas.Diccionario.route) {
             val diccionarioViewModel: DiccionarioViewModel = viewModel()
             WitjScaffoldWithBottomNav(

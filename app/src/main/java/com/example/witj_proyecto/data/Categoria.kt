@@ -1,5 +1,6 @@
 package com.example.witj_proyecto.data
 
+// categorias para filtrar palabras
 enum class Categoria(val displayName: String) {
     naturaleza("Naturaleza"),
     animales("Animales"),

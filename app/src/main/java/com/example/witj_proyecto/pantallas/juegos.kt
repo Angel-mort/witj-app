@@ -2,10 +2,7 @@ package com.example.witj_proyecto.pantallas
 
 import com.example.witj_proyecto.data.EstadoJuego
 
-/**
- * Evalúa la respuesta del usuario y devuelve el nuevo estado del juego.
- * @param totalPreguntas número total de preguntas de la partida (p. ej. tamaño de la lista).
- */
+// revisa si acerto, suma punto y avanza o marca terminado
 fun checarRespuesta(
     seleccionado: String,
     respuestacorrecta: String,

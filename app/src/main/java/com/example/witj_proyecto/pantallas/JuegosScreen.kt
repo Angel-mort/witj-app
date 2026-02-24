@@ -34,6 +34,7 @@ import com.example.witj_proyecto.viewmodel.JuegoViewModel
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.remember
 
+// pantalla del juego: config, quiz o resultado
 @Composable
 fun JuegosScreen(viewModel: JuegoViewModel = viewModel()) {
     val estado = viewModel.estado.value
@@ -60,6 +61,7 @@ fun JuegosScreen(viewModel: JuegoViewModel = viewModel()) {
     }
 }
 
+// paso 1: elegir lengua y categoria, luego iniciar
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ConfiguraJuegoContent(
@@ -140,6 +142,7 @@ private fun ConfiguraJuegoContent(
     }
 }
 
+// paso 2: pregunta, opciones y puntaje
 @Composable
 private fun QuizContent(
     viewModel: JuegoViewModel,
@@ -220,6 +223,7 @@ private fun QuizContent(
     }
 }
 
+// paso 3: puntaje final y volver a jugar
 @Composable
 fun ResultadoScreen(
     puntaje: Int,

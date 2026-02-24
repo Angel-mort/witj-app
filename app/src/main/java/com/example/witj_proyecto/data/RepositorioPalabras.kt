@@ -2,9 +2,7 @@ package com.example.witj_proyecto.data
 
 import com.example.witj_proyecto.R
 
-/**
- * Fuente unica de palabras; en memoria. Instancia compartida para diccionario y juego.
- */
+// lista de palabras en memoria, compartida entre diccionario y juego (singleton)
 class RepositorioPalabras private constructor() {
 
     companion object {
@@ -30,7 +28,7 @@ class RepositorioPalabras private constructor() {
 
     fun obtenerTodas(): List<Palabra> = palabras.toList()
 
-    /** Añade una palabra al diccionario (en memoria). Para BD se delegará después. */
+    // agrega palabra nueva (por ahora solo en memoria)
     fun agregarPalabra(palabra: Palabra) {
         val conId = if (palabra.id <= 0) palabra.copy(id = nextId++) else palabra
         palabras.add(conId)
@@ -38,7 +36,8 @@ class RepositorioPalabras private constructor() {
 
     fun obtenerPorLengua(lengua: Lengua): List<Palabra> =
         palabras.filter { it.lengua == lengua }
-    //Funcion para devolver palabras filtradas por categoria
+
+    // filtro por lengua y categoria (para el juego)
     fun obtenerXlenguaYcategoria(
         lengua: Lengua,
         categoria: Categoria
@@ -46,7 +45,7 @@ class RepositorioPalabras private constructor() {
         return palabras.filter {   it.lengua == lengua && it.categoria == categoria}
     }
 
-    //funcion para devolver una cantidad aleatoria para el minijuego
+    // toma N palabras al azar (cuando no hay suficientes filtradas)
     fun obtenerAleatorias(cantidad: Int): List<Palabra> {
         return palabras.shuffled().take(cantidad)
     }

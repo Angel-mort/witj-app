@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
+// pantallas de diccionario y juego: mismo scaffold con bottom bar y contenido blanco
 @Composable
 fun WitjScaffoldWithBottomNav(
     currentRoute: String,

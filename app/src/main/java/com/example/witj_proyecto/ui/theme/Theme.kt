@@ -30,10 +30,10 @@ private val LightColorScheme = lightColorScheme(
     onBackground = Color(0xFF1C1B1F)
 )
 
+// tema de la app, por ahora sin dynamic color
 @Composable
 fun Witj_proyectoTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {

@@ -17,6 +17,7 @@ import com.example.witj_proyecto.R
 import com.example.witj_proyecto.ui.theme.WitjNavActive
 import com.example.witj_proyecto.ui.theme.WitjNavInactive
 
+// tabs del bottom bar: diccionario y juego
 enum class WitjTab(
     val route: String,
     val labelRes: Int,
@@ -26,6 +27,7 @@ enum class WitjTab(
     Juego("juegos", R.string.tab_juego, Icons.Outlined.SportsEsports)
 }
 
+// barra de abajo con iconos diccionario y juego, el activo en rojo
 @Composable
 fun WitjBottomNavBar(
     currentRoute: String,

@@ -9,11 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-/**
- * ViewModel del diccionario colaborativo.
- * Expone: lengua seleccionada, lista de palabras filtrada, campos del formulario y acciones.
- * Sin persistencia (BD) por ahora; el repositorio mantiene la lista en memoria.
- */
+// estado del diccionario: lengua, lista, formulario y acciones
 class DiccionarioViewModel(
     private val repositorio: RepositorioPalabras = RepositorioPalabras.getInstance()
 ) : ViewModel() {
@@ -28,7 +24,7 @@ class DiccionarioViewModel(
         refrescarLista()
     }
 
-    // Formulario: palabra en lengua originaria, traducción, imagen (res id), audio (path placeholder)
+    // campos del formulario
     private val _textoLengua = MutableStateFlow("")
     val textoLengua: StateFlow<String> = _textoLengua.asStateFlow()
 
@@ -65,7 +61,7 @@ class DiccionarioViewModel(
         _imagenResId.value = resId
     }
 
-    /** Placeholder: cuando se implemente grabación, se asignará la ruta del archivo. */
+    // para cuando tengamos grabacion de audio
     fun asignarAudioGrabado(path: String?) {
         _audioPath.value = path
     }

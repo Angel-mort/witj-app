@@ -1,20 +1,13 @@
 package com.example.witj_proyecto.data
 
-/**
- * Estado de una partida del minijuego quiz.
- * @param indicePreguntaactual índice de la pregunta actual (0-based).
- * @param puntaje puntos acumulados.
- * @param terminado true cuando se alcanza el número total de preguntas.
- */
+// estado del quiz: en que pregunta va, puntaje y si ya termino
 data class EstadoJuego(
     val indicePreguntaactual: Int = 0,
     val puntaje: Int = 0,
     val terminado: Boolean = false
 )
 
-/**
- * Representación de una pregunta del quiz (opcional, para lógica alternativa).
- */
+// pregunta individual (palabra, opciones, respuesta correcta)
 data class Question(
     val palabra: String,
     val opciones: List<String>,

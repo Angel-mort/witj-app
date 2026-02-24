@@ -10,18 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+// menu principal: ir a diccionario o a jugar
 @Composable
 fun MenuScreen(
-
     onJuegos: () -> Unit,
     onDiccionario: () -> Unit,
-
 ) {
-
-
-
-
-
     Column(
         modifier = Modifier
             .fillMaxSize()

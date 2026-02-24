@@ -37,6 +37,7 @@ import com.example.witj_proyecto.ui.theme.WitjCardBackground
 import com.example.witj_proyecto.ui.theme.WitjPrimary
 import com.example.witj_proyecto.viewmodel.DiccionarioViewModel
 
+// drawables que se pueden elegir para una palabra
 private val IMAGENES_OPCIONES = listOf(
     R.drawable.verb1 to "Verbo 1",
     R.drawable.verb2 to "Verbo 2",
@@ -56,6 +57,7 @@ fun DiccionarioScreen(
     val traduccion by viewModel.traduccion.collectAsState()
     val imagenResId by viewModel.imagenResId.collectAsState()
 
+    // todo en un column con scroll (lista abajo sin lazy para no crashear)
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -90,6 +92,7 @@ fun DiccionarioScreen(
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        // card del formulario para agregar palabra
         Card(
             modifier = Modifier.fillMaxWidth(),
             colors = CardDefaults.cardColors(containerColor = WitjCardBackground),
@@ -188,6 +191,7 @@ fun DiccionarioScreen(
     }
 }
 
+// una fila de la lista de palabras guardadas
 @Composable
 private fun PalabraItem(palabra: Palabra) {
     Card(

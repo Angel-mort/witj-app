@@ -11,8 +11,8 @@ import com.example.witj_proyecto.data.Palabra
 import com.example.witj_proyecto.data.RepositorioPalabras
 import com.example.witj_proyecto.pantallas.checarRespuesta
 
+// estado del quiz: config, preguntas, puntaje y opciones
 class JuegoViewModel : ViewModel() {
-
 
     private val repositorio = RepositorioPalabras.getInstance()
 
@@ -22,15 +22,12 @@ class JuegoViewModel : ViewModel() {
     private val _categoriaSeleccionada = mutableStateOf(Categoria.naturaleza)
     val categoriaSeleccionadaState: State<Categoria> = _categoriaSeleccionada
 
-    //Estado del juego
     var estado = mutableStateOf(EstadoJuego())
         private set
-    ////////////////////////////////////////////
 
-    //lista de palabras que se usaran en la partida
     private var palabrasJuego: List<Palabra> = emptyList()
 
-    /** Llama a esto cuando el usuario pulse "Iniciar Juego" en la pantalla de configuración. */
+    // el usuario eligio lengua/categoria y toco iniciar
     fun iniciarJuego() {
         cargarPalabras()
     }
@@ -59,8 +56,7 @@ class JuegoViewModel : ViewModel() {
 
     fun obtenerPalabraActual(): Palabra = palabrasJuego[estado.value.indicePreguntaactual]
 
-    ///////////////////////////////////////////////////////////////
-    //funcion q se llamara cuando el usuario seleccione una opcionm
+    // usuario eligio una opcion, checamos y actualizamos estado
     fun seleccionarOpcion(opcion: String) {
         val palabraActual = obtenerPalabraActual()
         estado.value = checarRespuesta(
@@ -71,11 +67,11 @@ class JuegoViewModel : ViewModel() {
         )
     }
 
-    //////////////////////////////////////////////////////////77
     fun reiniciarJuego() {
         cargarPalabras()
     }
-    //Devuelve las opciones mezcladas (correcta + distractores)
+
+    // la correcta mas 2 distractores, todo mezclado
     fun obtenerOpciones(): List<String> {
         val correcta= obtenerPalabraActual().traduccion
 
