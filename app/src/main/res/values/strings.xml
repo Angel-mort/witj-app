@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">witj_proyecto</string>
+    <string name="app_name">Witj</string>
+    <string name="tab_diccionario">Diccionario</string>
+    <string name="tab_juego">Juego</string>
 </resources>

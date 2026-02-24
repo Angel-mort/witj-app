@@ -1,33 +1,24 @@
 package com.example.witj_proyecto.pantallas
 
+import com.example.witj_proyecto.data.EstadoJuego
 
-//total de palabras por partida
-private const val TOTAL_QUESTIONS = 3
-
-data class Question(
-    val palabra: String,
-    val opciones: List<String>,
-    val respuestacorrecta: String
-)
-data class EstadoJuego(
-    val indicePreguntaactual: Int = 0,
-    val puntaje: Int = 0,
-    val terminado: Boolean = false
-)
-
+/**
+ * Evalúa la respuesta del usuario y devuelve el nuevo estado del juego.
+ * @param totalPreguntas número total de preguntas de la partida (p. ej. tamaño de la lista).
+ */
 fun checarRespuesta(
     seleccionado: String,
     respuestacorrecta: String,
-    estado: EstadoJuego
+    estado: EstadoJuego,
+    totalPreguntas: Int
 ): EstadoJuego {
-    //si la respuesta es correcta, aumenta el puntaje
     val nuevopuntaje = if (seleccionado == respuestacorrecta)
-        estado.puntaje+ 1
+        estado.puntaje + 1
     else estado.puntaje
 
     val nextIndex = estado.indicePreguntaactual + 1
 
-    return if (nextIndex >= TOTAL_QUESTIONS) {
+    return if (nextIndex >= totalPreguntas) {
         estado.copy(puntaje = nuevopuntaje, terminado = true)
     } else {
         estado.copy(
@@ -36,5 +27,3 @@ fun checarRespuesta(
         )
     }
 }
-
-
