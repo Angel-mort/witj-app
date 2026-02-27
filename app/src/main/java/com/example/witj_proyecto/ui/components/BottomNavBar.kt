@@ -1,40 +1,33 @@
 package com.example.witj_proyecto.ui.components
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.MenuBook
-import androidx.compose.material.icons.outlined.SportsEsports
-import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.example.witj_proyecto.R
+import com.example.witj_proyecto.ui.theme.WitjBgNatural
 import com.example.witj_proyecto.ui.theme.WitjNavActive
 import com.example.witj_proyecto.ui.theme.WitjNavInactive
 
-// tabs del bottom bar: diccionario y juego
+// tabs del bottom bar: solo texto, sin usar resources para evitar errores raros en el ide
 enum class WitjTab(
     val route: String,
-    val labelRes: Int,
-    val icon: ImageVector
+    val label: String
 ) {
-    Diccionario("diccionario", R.string.tab_diccionario, Icons.Outlined.MenuBook),
-    Juego("juegos", R.string.tab_juego, Icons.Outlined.SportsEsports)
+    Diccionario("diccionario", "Diccionario"),
+    Juego("juegos", "Juego")
 }
 
-// barra de abajo con iconos diccionario y juego, el activo en rojo
+// barra de abajo con tabs de diccionario y juego
 @Composable
 fun WitjBottomNavBar(
     currentRoute: String,
     onTabSelected: (String) -> Unit
 ) {
     NavigationBar(
-        containerColor = Color(0xFFF5F5F5),
+        containerColor = WitjBgNatural,
         tonalElevation = 8.dp
     ) {
         for (tab in WitjTab.entries) {
@@ -43,15 +36,11 @@ fun WitjBottomNavBar(
                 selected = selected,
                 onClick = { onTabSelected(tab.route) },
                 icon = {
-                    Icon(
-                        imageVector = tab.icon,
-                        contentDescription = stringResource(tab.labelRes),
-                        tint = if (selected) WitjNavActive else WitjNavInactive
-                    )
+                    // no usamos iconos, solo dejamos el label
                 },
                 label = {
                     Text(
-                        text = stringResource(tab.labelRes),
+                        text = tab.label,
                         color = if (selected) WitjNavActive else WitjNavInactive
                     )
                 },

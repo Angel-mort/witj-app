@@ -1,6 +1,5 @@
 package com.example.witj_proyecto.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -11,23 +10,38 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import com.example.witj_proyecto.ui.theme.WitjPrimary
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = WitjTurquesaSoft,
+    secondary = WitjVerdeHoja,
+    tertiary = WitjMagenta,
+    background = Color(0xFF2B2621),
+    surface = Color(0xFF2F2A25),
+    onSurface = WitjBgCanvas,
+    onBackground = WitjBgCanvas
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = WitjPrimary,
-    onPrimary = Color.White,
-    secondary = PurpleGrey40,
-    tertiary = Pink40,
-    surface = Color(0xFFFFFBFE),
-    background = Color(0xFFFFFBFE),
-    onSurface = Color(0xFF1C1B1F),
-    onBackground = Color(0xFF1C1B1F)
+    // fondos (evitamos blanco puro)
+    background = WitjBgCanvas,
+    surface = WitjBgNatural,
+
+    // acciones
+    primary = WitjTurquesa,
+    onPrimary = WitjBgCanvas,
+    secondary = WitjVerdeHoja,
+    onSecondary = WitjBgCanvas,
+    tertiary = WitjMaiz,
+    onTertiary = WitjTextCafe,
+
+    // texto (evitamos negro puro)
+    onSurface = WitjTextCafe,
+    onBackground = WitjTextCafe,
+
+    // extras utiles
+    outline = WitjChipBorder,
+    error = WitjRojoBarro,
+    onError = WitjBgCanvas
 )
 
 // tema de la app, por ahora sin dynamic color

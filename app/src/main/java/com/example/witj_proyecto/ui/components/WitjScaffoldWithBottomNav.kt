@@ -4,12 +4,12 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 
-// pantallas de diccionario y juego: mismo scaffold con bottom bar y contenido blanco
+// pantallas de diccionario y juego: mismo scaffold con bottom bar y fondo de la app
 @Composable
 fun WitjScaffoldWithBottomNav(
     currentRoute: String,
@@ -18,7 +18,7 @@ fun WitjScaffoldWithBottomNav(
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        containerColor = Color.White,
+        containerColor = MaterialTheme.colorScheme.background,
         bottomBar = {
             WitjBottomNavBar(
                 currentRoute = currentRoute,
@@ -32,7 +32,7 @@ fun WitjScaffoldWithBottomNav(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .background(Color.White)
+                .background(MaterialTheme.colorScheme.background)
         ) {
             content()
         }

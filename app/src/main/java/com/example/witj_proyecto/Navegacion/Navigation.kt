@@ -7,7 +7,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.witj_proyecto.viewmodel.DiccionarioViewModel
 import com.example.witj_proyecto.viewmodel.JuegoViewModel
-import com.example.witj_proyecto.pantallas.AprendeScreen
 import com.example.witj_proyecto.pantallas.DiccionarioScreen
 import com.example.witj_proyecto.pantallas.InicioScreen
 import com.example.witj_proyecto.pantallas.JuegosScreen
@@ -58,6 +57,5 @@ fun Navegacion() {
                 JuegosScreen(viewModel = juegoViewModel)
             }
         }
-        composable(rutas.Aprende.route) { AprendeScreen() }
     }
 }
