@@ -13,7 +13,7 @@ val Pink40 = Color(0xFF7D5260)
 // colores de la app: chip seleccionado, botones, barra abajo, caja de palabra, card
 val WitjChipSelected = Color(0xFFE0E6FF)
 val WitjChipBorder = Color(0xFFE0E0E0)
-val WitjPrimary = Color(0xFF4A4A9E)
+val WitjPrimary = Color(0xFF00BCD4)
 val WitjNavActive = Color(0xFFC62828)
 val WitjNavInactive = Color(0xFF757575)
 val WitjWordBox = Color(0xFFE0E6FF)

@@ -10,7 +10,7 @@ import com.example.witj_proyecto.Navegacion.Navegacion
 // raiz de la app, scaffold + navegacion
 @Composable
 fun WitjApp() {
-    Scaffold(modifier = Modifier.fillMaxSize()) { _ ->
+    Scaffold(modifier = Modifier.fillMaxSize()) { _->
         Surface(modifier = Modifier.fillMaxSize()) {
             Navegacion()
         }
